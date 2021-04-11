@@ -1,5 +1,5 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+import webdriver from selenium
+import Keys from selenium.webdriver.common.keys
 
 print('hi')
 print('jtesting')
