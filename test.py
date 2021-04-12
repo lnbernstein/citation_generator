@@ -15,11 +15,14 @@ def mla(link):
     driver.get('{}', link)
     
     name1 = driver.find_element_by_xpath('//td[@class = "name"]')
+    name1 = name_flipper(name1)
     
     name2 = ''
+    name2 = name_flipper(name2)
     
     name3 = ''
-    
+    name3 = name_flipper(name3)
+
     # I am thinking of collecting the author names in a dictionary
     
     web_title = ''  #italicize 
@@ -40,6 +43,20 @@ def mla(link):
 def apa(link):
     # driver.get('{}', link)
     print('Not completed yet\n')
+
+def name_flipper(name):
+    first = []
+    second = []
+    for x in len(name):
+        if name[x] = ' ':
+            while x =! len(name)
+                second[x] = [x]
+            break
+        else:
+            first[x] = name[x]
+    return(second + first)
+
+
 
 #input variables
 citation_style = ''
