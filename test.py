@@ -25,7 +25,7 @@ def mla(link):
 
     # I am thinking of collecting the author names in a dictionary
     
-    web_title = ''  #italicize 
+    web_title = driver.find_element_by_xpath('//td[@data-test-id = "headline"]')  #italicize 
     
     web = ''
     
