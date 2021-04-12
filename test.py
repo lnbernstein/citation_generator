@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import pandas as pd
+import sys
 
 #url access
 driver = webdriver.Chrome('/Users/jmoge/Downloads/chromedriver')
@@ -13,14 +14,11 @@ driver = webdriver.Chrome('/Users/jmoge/Downloads/chromedriver')
 def mla(link):
     driver.get('{}', link)
     
-    first_name1 = ''
-    last_name1 = ''
+    name1 = driver.find_element_by_xpath('//td[@class = "name"]')
     
-    first_name2 = ''
-    last_name2 = ''
+    name2 = ''
     
-    first_name3 = ''
-    last_name3 = ''
+    name3 = ''
     
     # I am thinking of collecting the author names in a dictionary
     
@@ -32,12 +30,12 @@ def mla(link):
 
     url = link
     
-    if first_name3 != '':
-        print(f"{last_name1}, {first_name1}, et al. {web_title}, {web}, {date}, {url}" )                            #finished citation
-    elif first_name2 != '':    
-        print(f"{last_name1}, {first_name1}, {last_name2}, {first_name2}, {web_title}, {web}, {date}, {url}" )      #finished citation
+    if name3 != '':
+        print(f"{name1}, et al. {web_title}, {web}, {date}, {url}" )                            #finished citation
+    elif name2 != '':    
+        print(f"{name1}, {name2}, {web_title}, {web}, {date}, {url}" )      #finished citation
     else:
-        print(f"{last_name1}, {first_name1}, {web_title}, {web}, {date}, {url}" )                                   #finished citation
+        print(f"{name1}, {web_title}, {web}, {date}, {url}" )                                   #finished citation
 
 def apa(link):
     # driver.get('{}', link)
@@ -55,7 +53,7 @@ while True:
     '3. Exit\n' )
 
     if citation_style == '3':
-        exit()
+        sys.exit('\nThank you, have a nice day\n')
 
     hyperlink = input('Please enter website link:\n')
 
