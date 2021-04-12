@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 import pandas as pd
 
 #url access
-driver = webdriver.Chrome('/Users/luke/Downloads/chromedriver 2')
+driver = webdriver.Chrome('/Users/jmoge/Downloads/chromedriver')
 
 #test url
 # driver.get('https://www.nytimes.com/2021/04/11/world/middleeast/iran-nuclear-natanz.html?action=click&module=Spotlight&pgtype=Homepage')
@@ -57,7 +57,7 @@ while True:
     if citation_style == '3':
         exit()
 
-    hyperlink = input('Please enter website link')
+    hyperlink = input('Please enter website link:\n')
 
     if citation_style == '1':
         mla(hyperlink)
