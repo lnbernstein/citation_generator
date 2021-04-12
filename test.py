@@ -4,7 +4,7 @@ import pandas as pd
 import sys
 
 #url access
-driver = webdriver.Chrome('/Users/jmoge/Downloads/chromedriver')
+driver = webdriver.Chrome('/Users/luke/Downloads/chromedriver 2')
 
 #test url
 # driver.get('https://www.nytimes.com/2021/04/11/world/middleeast/iran-nuclear-natanz.html?action=click&module=Spotlight&pgtype=Homepage')
@@ -12,16 +12,19 @@ driver = webdriver.Chrome('/Users/jmoge/Downloads/chromedriver')
 
 #MLA citation function
 def mla(link):
-    driver.get('{}', link)
+    driver.get(link)
     
-    name1 = driver.find_element_by_xpath('//td[@class = "name"]')
-    name1 = name_flipper(name1)
+    # name1 = driver.find_element_by_xpath('//td[@class = "name"]')
+    names = driver.find_elements_by_css_selector('css-hogf08')
+    print(names)
+    # type(name1)
+    # name1 = name_flipper(name1)
     
-    name2 = ''
-    name2 = name_flipper(name2)
+    # name2 = ''
+    # name2 = name_flipper(name2)
     
-    name3 = ''
-    name3 = name_flipper(name3)
+    # name3 = ''
+    # name3 = name_flipper(name3)
 
     # I am thinking of collecting the author names in a dictionary
     
@@ -33,9 +36,9 @@ def mla(link):
 
     url = link
     
-    if web = '':
+    if web == '':
         web = input('Please enter the name of the website:')
-    if date = '':
+    if date == '':
         date = input('Please enter the date in day month year format:')
 
     if name3 != '':
@@ -53,8 +56,8 @@ def name_flipper(name):
     first = []
     second = []
     for x in len(name):
-        if name[x] = ' ':
-            while x =! len(name)
+        if name[x] == ' ':
+            while x != len(name):
                 second[x] = [x]
             break
         else:
