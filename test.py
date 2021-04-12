@@ -33,6 +33,11 @@ def mla(link):
 
     url = link
     
+    if web = '':
+        web = input('Please enter the name of the website:')
+    if date = '':
+        date = input('Please enter the date in day month year format:')
+
     if name3 != '':
         print(f"{name1}, et al. {web_title}, {web}, {date}, {url}" )                            #finished citation
     elif name2 != '':    
