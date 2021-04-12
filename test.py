@@ -12,13 +12,31 @@ driver.get('https://www.nytimes.com/2021/04/11/world/middleeast/iran-nuclear-nat
 #MLA citation function
 def mla(link):
     driver.get('{}', link)
-    author1 = ''
-    author2 = ''
-    author3 = ''
+    
+    first_name1 = ''
+    last_name1 = ''
+    
+    first_name2 = ''
+    last_name2 = ''
+    
+    first_name3 = ''
+    last_name3 = ''
+    
+    # I am thinking of collecting the author names in a dictionary
+    
     web_title = ''  #italicize 
+    
+    web = ''
+    
+    date = ''
 
-    print('', )     #finished citation
-    pass 
+    url = link
+    if first_name3 != '':
+        print(f"{last_name1}, {first_name1}, et al. {web_title}, {web}, {date}, {url}" )                            #finished citation
+    elif first_name2 != '':    
+        print(f"{last_name1}, {first_name1}, {last_name2}, {first_name2}, {web_title}, {web}, {date}, {url}" )      #finished citation
+    else:
+        print(f"{last_name1}, {first_name1}, {web_title}, {web}, {date}, {url}" )                                   #finished citation
 
 def apa(link):
     driver.get('{}', link)
