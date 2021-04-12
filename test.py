@@ -40,8 +40,8 @@ def mla(link):
         print(f"{last_name1}, {first_name1}, {web_title}, {web}, {date}, {url}" )                                   #finished citation
 
 def apa(link):
-    driver.get('{}', link)
-    print('Not completed yet')
+    # driver.get('{}', link)
+    print('Not completed yet\n')
 
 #input variables
 citation_style = ''
