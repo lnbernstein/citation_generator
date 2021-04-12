@@ -6,7 +6,7 @@ import pandas as pd
 driver = webdriver.Chrome('/Users/luke/Downloads/chromedriver 2')
 
 #test url
-driver.get('https://www.nytimes.com/2021/04/11/world/middleeast/iran-nuclear-natanz.html?action=click&module=Spotlight&pgtype=Homepage')
+# driver.get('https://www.nytimes.com/2021/04/11/world/middleeast/iran-nuclear-natanz.html?action=click&module=Spotlight&pgtype=Homepage')
 
 
 #MLA citation function
@@ -49,22 +49,19 @@ hyperlink = ''
 
 #input prompt
 while True:
-    print(
-        'Choose Citation Style:\n'
-        '1. MLA\n'
-        '2. APA\n'
-        '3. Exit\n'
-        )
-    input = citation_style
+    citation_style = input('Choose Citation Style:\n'
+    '1. MLA\n'
+    '2. APA\n'
+    '3. Exit\n' )
 
-    print('Please enter website link:\n')
-    input = hyperlink
+    if citation_style == '3':
+        exit()
+
+    hyperlink = input('Please enter website link')
 
     if citation_style == '1':
         mla(hyperlink)
     elif citation_style == '2':
         apa(hyperlink)
-    elif citation_style == '3':
-        exit()
     else:
         print('Invalid choice, please try again')
