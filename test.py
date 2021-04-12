@@ -2,23 +2,33 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import pandas as pd
 
+#url access
 driver = webdriver.Chrome('/Users/luke/Downloads/chromedriver 2')
 
+#test url
 driver.get('https://www.nytimes.com/2021/04/11/world/middleeast/iran-nuclear-natanz.html?action=click&module=Spotlight&pgtype=Homepage')
 
-print('hi')
-print('jtesting')
 
+#MLA citation function
 def mla(link):
     driver.get('{}', link)
+    author1 = ''
+    author2 = ''
+    author3 = ''
+    web_title = ''  #italicize 
+
+    print('', )     #finished citation
     pass 
 
 def apa(link):
     driver.get('{}', link)
-    pass
+    print('Not completed yet')
 
+#input variables
 citation_style = ''
 hyperlink = ''
+
+#input prompt
 while True:
     print(
         'Choose Citation Style:\n'
@@ -28,9 +38,7 @@ while True:
         )
     input = citation_style
 
-    print(
-        'Please enter website link:\n'
-        )
+    print('Please enter website link:\n')
     input = hyperlink
 
     if citation_style == '1':
