@@ -31,6 +31,7 @@ def mla(link):
     date = ''
 
     url = link
+    
     if first_name3 != '':
         print(f"{last_name1}, {first_name1}, et al. {web_title}, {web}, {date}, {url}" )                            #finished citation
     elif first_name2 != '':    
