@@ -1,21 +1,28 @@
-from bs4 import BeautifulSoup
-import urllib.request
+
+from selenium import webdriver
+import urllib.request,time
 import re
 import sys
 
 
+driver = webdriver.Chrome('/Users/luke/Downloads/chromedriver 2')
+
+# currently testign with this link 
+# 'https://www.nytimes.com/2021/04/12/opinion/biden-economy-culture.html?action=click&module=Opinion&pgtype=Homepage'
+
 #MLA citation function
 def mla(link):
     
-    # test url
-    try:
-        page = urllib.request.urlopen(link)
-    except:
-        print('Invalid url, please try again')
-    
-    # create bs4 object to be parsed 
-    soup = BeautifulSoup(page, 'html.parser')
+    driver.get(link)
 
+    # lets the javascript load in
+    time.sleep(8)
+
+    # test is a selenium object and we get the actual text by calling test.text
+    test = driver.find_element_by_xpath('/html/body/div[1]/div/div/div[2]/main/div/article/header/div[5]/div/div[2]/p/span[2]/a')
+    print(test.text)
+
+    driver.quit()
     name1 = ''
     name1 = name_flipper(name1)
     
@@ -35,9 +42,9 @@ def mla(link):
 
     url = link
     
-    if web = '':
+    if web == '':
         web = input('Please enter the name of the website:')
-    if date = '':
+    if date == '':
         date = input('Please enter the date in day month year format:')
 
     if name3 != '':
@@ -55,8 +62,8 @@ def name_flipper(name):
     first = []
     second = []
     for x in len(name):
-        if name[x] = ' ':
-            while x =! len(name)
+        if name[x] == ' ':
+            while x != len(name):
                 second[x] = [x]
             break
         else:
@@ -80,6 +87,8 @@ while True:
         sys.exit('\nThank you, have a nice day\n')
 
     url = input('Please enter website url:\n')
+
+    print(url)
 
     if citation_style == '1':
         mla(url)
