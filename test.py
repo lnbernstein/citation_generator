@@ -4,11 +4,18 @@ import re
 import sys
 
 
-
 #MLA citation function
 def mla(link):
-    driver.get('{}', link)
     
+    # test url
+    try:
+        page = urllib.request.urlopen(link)
+    except:
+        print('Invalid url, please try again')
+    
+    # create bs4 object to be parsed 
+    soup = BeautifulSoup(page, 'html.parser')
+
     name1 = ''
     name1 = name_flipper(name1)
     
@@ -60,7 +67,7 @@ def name_flipper(name):
 
 #input variables
 citation_style = ''
-hyperlink = ''
+url = ''
 
 #input prompt
 while True:
@@ -72,11 +79,11 @@ while True:
     if citation_style == '3':
         sys.exit('\nThank you, have a nice day\n')
 
-    hyperlink = input('Please enter website link:\n')
+    url = input('Please enter website url:\n')
 
     if citation_style == '1':
-        mla(hyperlink)
+        mla(url)
     elif citation_style == '2':
-        apa(hyperlink)
+        apa(url)
     else:
         print('Invalid choice, please try again')
