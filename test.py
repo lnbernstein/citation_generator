@@ -1,20 +1,13 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-import pandas as pd
+
 import sys
 
-#url access
-driver = webdriver.Chrome('/Users/jmoge/Downloads/chromedriver')
-
-#test url
-# driver.get('https://www.nytimes.com/2021/04/11/world/middleeast/iran-nuclear-natanz.html?action=click&module=Spotlight&pgtype=Homepage')
 
 
 #MLA citation function
 def mla(link):
     driver.get('{}', link)
     
-    name1 = driver.find_element_by_xpath('//td[@class = "name"]')
+    name1 = ''
     name1 = name_flipper(name1)
     
     name2 = ''
@@ -25,7 +18,7 @@ def mla(link):
 
     # I am thinking of collecting the author names in a dictionary
     
-    web_title = driver.find_element_by_xpath('//td[@data-test-id = "headline"]')  #italicize 
+    web_title = ''  #italicize 
     
     web = ''
     
@@ -41,7 +34,7 @@ def mla(link):
     if name3 != '':
         print(f"{name1}, et al. {web_title}, {web}, {date}, {url}" )                            #finished citation
     elif name2 != '':    
-        print(f"{name1}, {name2}, {web_title}, {web}, {date}, {url}" )      #finished citation
+        print(f"{name1}, {name2}, {web_title}, {web}, {date}, {url}" )                          #finished citation
     else:
         print(f"{name1}, {web_title}, {web}, {date}, {url}" )                                   #finished citation
 
