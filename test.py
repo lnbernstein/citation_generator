@@ -61,14 +61,11 @@ def apa(link):
 def name_flipper(name):
     first = []
     second = []
-    for x in len(name):
+    for x in range(len(name)):
         if name[x] == ' ':
-            while x != len(name):
-                second[x] = [x]
-            break
-        else:
-            first[x] = name[x]
-    return(second + first)
+            first = name[0: (x-1)]
+            second = name[(x+1): -1]
+    return(second + ' ' + first)
 
 
 
