@@ -8,6 +8,7 @@ print(os.environ.get('USER'))
 
 
 driver = webdriver.Chrome('/Users/jmoge/Downloads/chromedriver')
+# driver = webdriver.Chrome (executable_path="C:\\chromedriver.exe")
 
 # currently testign with this link 
 # 'https://www.nytimes.com/2021/04/12/opinion/biden-economy-culture.html?action=click&module=Opinion&pgtype=Homepage'
@@ -16,7 +17,8 @@ driver = webdriver.Chrome('/Users/jmoge/Downloads/chromedriver')
 
 def mla(link):
     
-    driver.get(link)
+    driver.get(link) # creates 
+    
 
     time.sleep(4)  # lets the javascript load in
 
