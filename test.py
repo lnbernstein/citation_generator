@@ -24,7 +24,7 @@ def mla(link):
 
 
     driver.quit()
-    name1 = driver.find_element_by_css_selector("a")
+    name1 = driver.find_element_by_tag_name("a")
     name1 = name_flipper(name1)
     
     name2 = ''
@@ -35,11 +35,11 @@ def mla(link):
 
     # I am thinking of collecting the author names in a dictionary
     
-    web_title = driver.find_element_by_css_selector("h1")  # italicize syntax "\x1B[3m  \x1B[23m" 
+    web_title = driver.find_element_by_tag_name("h1")  # italicize syntax "\x1B[3m  \x1B[23m" 
 
-    web = driver.find_element_by_css_selector("a")
+    web = driver.find_element_by_tag_name("a")
     
-    date = driver.find_element_by_css_selector("time")
+    date = driver.find_element_by_tag_name("time")
 
     url = link
     
@@ -49,11 +49,12 @@ def mla(link):
         date = input('Please enter the date in day month year format:')
 
     if name3 != '':
-        print(f"{name1.text}, et al. \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {url}" )  # citation for 1 author 
+        print(f"{name1}, et al. \x1B[3m{web_title}\x1B[23m, {web}, {date}, {url}" )  # citation for 1 author 
     elif name2 != '':    
-        print(f"{name1.text}, {name2.text}, \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {url}" )  # citation for 2 authors 
+        print(f"{name1}, {name2}, \x1B[3m{web_title}\x1B[23m, {web}, {date}, {url}" )  # citation for 2 authors 
     else:
-        print(f"{name1.text}, \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {url}" )  # citation for 3+ authors
+        print(f"{name1}, \x1B[3m{web_title}\x1B[23m, {web}, {date}, {url}" )  # citation for 3+ authors
+        print(name1.text + web_title.text + web.text + date.text + url)
 
 def apa(link):
     # driver.get('{}', link)
