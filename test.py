@@ -84,8 +84,6 @@ while True:  # input prompt
 
     url = input('Please enter website url:\n')
 
-    print(url) # why is this here?
-
     if citation_style == '1':
         mla(url)
     elif citation_style == '2':
