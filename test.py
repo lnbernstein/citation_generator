@@ -34,8 +34,8 @@ def mla(link):
 
     # I am thinking of collecting the author names in a dictionary
     
-    web_title = '' # italicize please
-    
+    web_title = ''  # italicize "\x1B[3m         \x1B[23m" 
+
     web = ''
     
     date = ''
@@ -48,11 +48,11 @@ def mla(link):
         date = input('Please enter the date in day month year format:')
 
     if name3 != '':
-        print(f"{name1}, et al. {web_title}, {web}, {date}, {url}" )  # citation for 1 author 
+        print(f"{name1}, et al. \x1B[3m{web_title}\x1B[23m, {web}, {date}, {url}" )  # citation for 1 author 
     elif name2 != '':    
-        print(f"{name1}, {name2}, {web_title}, {web}, {date}, {url}" )  # citation for 2 authors 
+        print(f"{name1}, {name2}, \x1B[3m{web_title}\x1B[23m, {web}, {date}, {url}" )  # citation for 2 authors 
     else:
-        print(f"{name1}, {web_title}, {web}, {date}, {url}" )  # citation for 3+ authors
+        print(f"{name1}, \x1B[3m{web_title}\x1B[23m, {web}, {date}, {url}" )  # citation for 3+ authors
 
 def apa(link):
     # driver.get('{}', link)
