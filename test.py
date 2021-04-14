@@ -65,7 +65,7 @@ def name_flipper(name):
         if name[x] == ' ':
             first = name[0: (x-1)]
             second = name[(x+1): -1]
-    return(second + ' ' + first)
+    return(f"{first} {second}")
 
 
 
