@@ -18,10 +18,9 @@ def mla(link):
 
     time.sleep(8)  # lets the javascript load in
 
-    
     test = driver.find_element_by_xpath('/html/body/div[1]/div/div/div[2]/main/div/article/header/div[5]/div/div[2]/p/span[2]/a')
     print(test.text)  # test is a selenium object and we get the actual text by calling test.text
-    test1 = driver.find_element_by_xpath("//span[input/@class='name']")
+    test1 = driver.find_element_by_css_selector("div.datetime")
     print(test1.text)  # This code only works on specific websites, why you do this
 
     driver.quit()
