@@ -1,13 +1,21 @@
 import os
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 import urllib.request,time
 import re
 import sys
 
-print(os.environ.get('USER'))
+# doesnt work yet
+print('hi')
+print(os.environ.get('driver_path'))
 
 
-driver = webdriver.Chrome('/Users/jmoge/Downloads/chromedriver')
+# prevents pop up window
+options = Options()
+options.headless = True
+
+
+driver = webdriver.Chrome('/Users/luke/Downloads/chromedriver 2', options=options)
 # driver = webdriver.Chrome (executable_path="C:\\chromedriver.exe")
 
 # currently testign with this link 
