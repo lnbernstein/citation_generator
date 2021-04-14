@@ -23,11 +23,9 @@ def mla(link):
     test = driver.find_element_by_xpath('/html/body/div[1]/div/div/div[2]/main/div/article/header/div[5]/div/div[2]/p/span[2]/a')
     print(test.text)  # test is a selenium object and we get the actual text by calling test.text
 
-
-
-    driver.quit()
+    
     name1 = driver.find_element_by_tag_name("a")
-    name1 = name_flipper(name1)
+    # name1 = name_flipper(name1)
     
     name2 = ''
     name2 = name_flipper(name2)
@@ -35,7 +33,6 @@ def mla(link):
     name3 = ''
     name3 = name_flipper(name3)
 
-    # I am thinking of collecting the author names in a dictionary
     
     web_title = driver.find_element_by_tag_name("h1")  # italicize syntax "\x1B[3m  \x1B[23m" 
 
@@ -44,19 +41,21 @@ def mla(link):
     date = driver.find_element_by_tag_name("time")
 
     url = link
-    
+
+
     if web == '':
         web = input('Please enter the name of the website:')
     if date == '':
         date = input('Please enter the date in day month year format:')
 
     if name3 != '':
-        print(f"{name1}, et al. \x1B[3m{web_title}\x1B[23m, {web}, {date}, {url}" )  # citation for 1 author 
+        print(f"{name1}, et al. \x1B[3m{web_title}\x1B[23m, {web}, {date}, {url}" )  # citation for 3+ author 
     elif name2 != '':    
         print(f"{name1}, {name2}, \x1B[3m{web_title}\x1B[23m, {web}, {date}, {url}" )  # citation for 2 authors 
     else:
-        print(f"{name1}, \x1B[3m{web_title}\x1B[23m, {web}, {date}, {url}" )  # citation for 3+ authors
-        print(name1.text + web_title.text + web.text + date.text + url)
+        print(name1.text + web_title.text + web.text + date.text + url)  # citation for 1 authors
+    
+    driver.quit()  # this closes the webdriver
 
 def apa(link):
     # driver.get('{}', link)
