@@ -36,7 +36,7 @@ def mla(link):
 
     # I am thinking of collecting the author names in a dictionary
     
-    web_title = ''  # italicize "\x1B[3m         \x1B[23m" 
+    web_title = ''  # italicize "\x1B[3m  \x1B[23m" 
 
     web = ''
     
