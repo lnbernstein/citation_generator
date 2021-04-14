@@ -68,7 +68,7 @@ def name_flipper(name):  # function to flip author name
         if name[x] == ' ':
             first = name[0: (x-1)]
             second = name[(x+1): -1]
-    return(f"{first} {second}")
+    return(f"{second}, {first}")
 
 
 citation_style = ''  # input variables
