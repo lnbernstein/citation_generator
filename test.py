@@ -34,19 +34,19 @@ def mla(link):
     print(test.text)  # test is a selenium object and we get the actual text by calling test.text
 
     
-    name1 = driver.find_element_by_xpath('//*[@id="story"]/header/div[5]/div/div[2]/p/span[2]/a')
+    name1 = driver.find_element_by_xpath('//*[@id="story"]/header/div[5]/div/div[2]/p/span[2]/a')  # Not global
     name1 = name_flipper(name1.text)
     
-    name2 = None
+    name2 = None  # Not ready
     name2 = name_flipper(name2)
     
-    name3 = None
+    name3 = None # Not ready
     name3 = name_flipper(name3)
 
     
     web_title = driver.find_element_by_tag_name("h1")  # italicize syntax "\x1B[3m  \x1B[23m" 
 
-    web = driver.find_element_by_tag_name("a")
+    web = driver.find_element_by_css_selector("#app > div > div > div:nth-child(2) > footer > nav > ul.css-1ho5u4o.e5u916q0 > li > a > span:nth-child(2)")  # Not global 
     
     date = driver.find_element_by_tag_name("time")
 
@@ -59,11 +59,11 @@ def mla(link):
         date = input('Please enter the date in day month year format:')
 
     if name3 != '':
-        print(f"{name1}, et al. \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {url}" )  # citation for 3+ author 
+        print(f"{name1}, et al. \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {url}\n" )  # citation for 3+ author 
     elif name2 != '':    
-        print(f"{name1}, {name2}, \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {url}" )  # citation for 2 authors 
+        print(f"{name1}, {name2}, \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {url}\n" )  # citation for 2 authors 
     else:
-        print(f"{name1}, \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {url}" )  # citation for 1 authors
+        print(f"{name1}, \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {url}\n" )  # citation for 1 authors
     
     driver.quit()  # this closes the webdriver
 
