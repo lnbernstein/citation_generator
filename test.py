@@ -34,7 +34,7 @@ def mla(link):
     print(test.text)  # test is a selenium object and we get the actual text by calling test.text
 
     
-    name1 = driver.find_element_by_tag_name("a")
+    name1 = driver.find_element_by_xpath("//a[@itemprop='name]")
     # name1 = name_flipper(name1)
     
     name2 = ''
