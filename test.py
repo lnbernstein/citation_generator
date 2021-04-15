@@ -80,8 +80,8 @@ def name_flipper(name):  # function to flip author name
         second = []
         for x in range(len(name)):
             if name[x] == ' ':
-                first = name[0: (x-1)]
-                second = name[(x+1): -1]
+                first = name[0: (x)]
+                second = name[(x+1):]
     return(f"{second}, {first}")
 
 
