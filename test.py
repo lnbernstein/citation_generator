@@ -34,13 +34,13 @@ def mla(link):
     print(test.text)  # test is a selenium object and we get the actual text by calling test.text
 
     
-    name1 = driver.find_element_by_xpath("//a[@itemprop='name]")
+    name1 = driver.find_element_by_xpath('//*[@id="story"]/header/div[5]/div/div[2]/p/span[2]/a')
     # name1 = name_flipper(name1)
     
-    name2 = ''
+    name2 = ' '
     name2 = name_flipper(name2)
     
-    name3 = ''
+    name3 = ' '
     name3 = name_flipper(name3)
 
     
@@ -58,9 +58,9 @@ def mla(link):
     if date == '':
         date = input('Please enter the date in day month year format:')
 
-    if name3 != '':
-        print(f"{name1}, et al. \x1B[3m{web_title}\x1B[23m, {web}, {date}, {url}" )  # citation for 3+ author 
-    elif name2 != '':    
+    if name3 != ' ':
+        print(f"{name1.text}, et al. \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {url}" )  # citation for 3+ author 
+    elif name2 != ' ':    
         print(f"{name1}, {name2}, \x1B[3m{web_title}\x1B[23m, {web}, {date}, {url}" )  # citation for 2 authors 
     else:
         print(name1.text + web_title.text + web.text + date.text + url)  # citation for 1 authors
