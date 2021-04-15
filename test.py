@@ -35,12 +35,12 @@ def mla(link):
 
     
     name1 = driver.find_element_by_xpath('//*[@id="story"]/header/div[5]/div/div[2]/p/span[2]/a')
-    # name1 = name_flipper(name1)
+    name1 = name_flipper(name1.text)
     
-    name2 = ' '
+    name2 = None
     name2 = name_flipper(name2)
     
-    name3 = ' '
+    name3 = None
     name3 = name_flipper(name3)
 
     
@@ -58,12 +58,12 @@ def mla(link):
     if date == '':
         date = input('Please enter the date in day month year format:')
 
-    if name3 != ' ':
-        print(f"{name1.text}, et al. \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {url}" )  # citation for 3+ author 
-    elif name2 != ' ':    
-        print(f"{name1}, {name2}, \x1B[3m{web_title}\x1B[23m, {web}, {date}, {url}" )  # citation for 2 authors 
+    if name3 != '':
+        print(f"{name1}, et al. \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {url}" )  # citation for 3+ author 
+    elif name2 != '':    
+        print(f"{name1}, {name2}, \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {url}" )  # citation for 2 authors 
     else:
-        print(name1.text + web_title.text + web.text + date.text + url)  # citation for 1 authors
+        print(f"{name1}, \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {url}" )  # citation for 1 authors
     
     driver.quit()  # this closes the webdriver
 
@@ -73,12 +73,15 @@ def apa(link):
     pass
 
 def name_flipper(name):  # function to flip author name
-    first = []
-    second = []
-    for x in range(len(name)):
-        if name[x] == ' ':
-            first = name[0: (x-1)]
-            second = name[(x+1): -1]
+    if name == None:
+        return('')
+    else:
+        first = []
+        second = []
+        for x in range(len(name)):
+            if name[x] == ' ':
+                first = name[0: (x-1)]
+                second = name[(x+1): -1]
     return(f"{second}, {first}")
 
 
