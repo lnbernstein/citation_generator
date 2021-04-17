@@ -15,8 +15,8 @@ options = Options()
 options.headless = True
 
 
-# driver = webdriver.Chrome('/Users/luke/Downloads/chromedriver 2', options=options)
-driver = webdriver.Chrome('/Users/jmoge/Downloads/chromedriver', options=options)
+driver = webdriver.Chrome('/Users/luke/Downloads/chromedriver 2', options=options)
+# driver = webdriver.Chrome('/Users/jmoge/Downloads/chromedriver', options=options)
 
 # currently testign with this link 
 # 'https://www.nytimes.com/2021/04/12/opinion/biden-economy-culture.html?action=click&module=Opinion&pgtype=Homepage'
