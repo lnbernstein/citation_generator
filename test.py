@@ -27,11 +27,10 @@ def mla(link):
     
     driver.get(link) # creates 
     
-
     time.sleep(4)  # lets the javascript load in
 
-    test = driver.find_element_by_xpath('/html/body/div[1]/div/div/div[2]/main/div/article/header/div[5]/div/div[2]/p/span[2]/a')
-    print(test.text)  # test is a selenium object and we get the actual text by calling test.text
+    # test = driver.find_element_by_xpath('/html/body/div[1]/div/div/div[2]/main/div/article/header/div[5]/div/div[2]/p/span[2]/a')
+    # print(test.text)  # test is a selenium object and we get the actual text by calling test.text
 
     
     name1 = driver.find_element_by_xpath('//*[@id="story"]/header/div[5]/div/div[2]/p/span[2]/a')  # Not global
@@ -42,7 +41,6 @@ def mla(link):
     
     name3 = None # Not ready
     name3 = name_flipper(name3)
-
     
     web_title = driver.find_element_by_tag_name("h1")  # italicize syntax "\x1B[3m  \x1B[23m" 
 
@@ -67,10 +65,12 @@ def mla(link):
     
     driver.quit()  # this closes the webdriver
 
+
 def apa(link):
     # driver.get('{}', link)
     print('Not completed yet\n')
     pass
+
 
 def name_flipper(name):  # function to flip author name
     if name == None:
@@ -80,8 +80,8 @@ def name_flipper(name):  # function to flip author name
         second = []
         for x in range(len(name)):
             if name[x] == ' ':
-                first = name[0: (x-1)]
-                second = name[(x+1): -1]
+                first = name[0: (x)]
+                second = name[(x+1):]
     return(f"{second}, {first}")
 
 
