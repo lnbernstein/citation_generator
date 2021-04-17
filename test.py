@@ -1,6 +1,7 @@
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from bs4 import BeautifulSoup
 import urllib.request,time
 import re
 import sys
@@ -20,6 +21,22 @@ driver = webdriver.Chrome('/Users/luke/Downloads/chromedriver 2', options=option
 
 # currently testign with this link 
 # 'https://www.nytimes.com/2021/04/12/opinion/biden-economy-culture.html?action=click&module=Opinion&pgtype=Homepage'
+
+# test for bs4, this is working not that poorly
+
+def testing(link):
+    driver.get(link)
+    time.sleep(4)
+    html = driver.page_source
+    soup = BeautifulSoup(html, 'html.parser')
+    h1s = soup.find('h1').getText()
+    print(h1s)
+
+    results = soup.body.find_all(class_=re.compile('line')) # demonstration of how to use a regualr expression
+    print(results)
+
+
+    
 
 # MLA citation function
 
@@ -87,6 +104,9 @@ def name_flipper(name):  # function to flip author name
 
 citation_style = ''  # input variables
 url = ''
+
+testing('https://www.nytimes.com/2021/04/12/opinion/biden-economy-culture.html?action=click&module=Opinion&pgtype=Homepage')
+
 
 while True:  # input prompt
     citation_style = input('Choose Citation Style:\n'
