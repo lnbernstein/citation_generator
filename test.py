@@ -109,7 +109,6 @@ def name_flipper(name):  # function to flip author name
     return(f"{second}, {first}")
 
 
-
 def main():
     testing('https://www.nytimes.com/2021/04/12/opinion/biden-economy-culture.html?action=click&module=Opinion&pgtype=Homepage')
     
