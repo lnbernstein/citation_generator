@@ -29,11 +29,19 @@ def testing(link):
     time.sleep(4)
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
-    h1s = soup.find('h1').getText()
-    print(h1s)
 
-    results = soup.body.find_all(class_=re.compile('line')) # demonstration of how to use a regualr expression
+    print(soup.find('title').getText())
+
+    authors = {"class": re.compile('line'), "class": re.compile('auth'), "class": re.compile('by')}
+    print(authors)
+
+    results = soup.body.find_all(attrs=authors) # demonstration of how to use a regualr expression
     print(results)
+
+    date ={'tag':'time', 'name': 'date', 'id':'date', 'class': 'timestamp', 'class':'time'} # this doesnt work
+    dates = soup.body.find_all(attrs=date) # this doesnt work
+    print(dates)
+
 
 
     
@@ -105,23 +113,31 @@ def name_flipper(name):  # function to flip author name
 citation_style = ''  # input variables
 url = ''
 
-testing('https://www.nytimes.com/2021/04/12/opinion/biden-economy-culture.html?action=click&module=Opinion&pgtype=Homepage')
 
 
-while True:  # input prompt
-    citation_style = input('Choose Citation Style:\n'
-    '1. MLA\n'
-    '2. APA\n'
-    '3. Exit\n' )
 
-    if citation_style == '3':
-        sys.exit('\nThank you, have a nice day\n')
+def main():
+    testing('https://www.nytimes.com/2021/04/12/opinion/biden-economy-culture.html?action=click&module=Opinion&pgtype=Homepage')
 
-    url = input('Please enter website url:\n')
+    # while True:  # input prompt
+    # citation_style = input('Choose Citation Style:\n'
+    # '1. MLA\n'
+    # '2. APA\n'
+    # '3. Exit\n' )
 
-    if citation_style == '1':
-        mla(url)
-    elif citation_style == '2':
-        apa(url)
-    else:
-        print('Invalid choice, please try again')
+    # if citation_style == '3':
+    #     sys.exit('\nThank you, have a nice day\n')
+
+    # url = input('Please enter website url:\n')
+
+    # if citation_style == '1':
+    #     mla(url)
+    # elif citation_style == '2':
+    #     apa(url)
+    # else:
+    #     print('Invalid choice, please try again')
+
+
+if __name__ == "__main__":
+    main()
+
