@@ -10,7 +10,13 @@ import sys
 print('hi')  # doesnt work yet
 print(os.environ.get('driver_path'))
 
+layout = [  # Formatting for pop up window
+    [
+
+    ]
+]
 window = sg.Window("Citation Generator", layout) # Creates window
+
 
 options = Options()  # prevents pop up window
 options.headless = True
@@ -132,3 +138,9 @@ def main():
 if __name__ == "__main__":
     main()
 
+while True:
+    event, values = window.read()
+    if event == "Exit" or event == sg.WIN_CLOSED:
+        break
+    main()
+window.close()
