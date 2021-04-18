@@ -32,8 +32,17 @@ def testing(link):
 
     print(soup.find('title').getText())
 
-    authors = {"class": re.compile('line'), "class": re.compile('auth'), "class": re.compile('by')}
-    print(authors)
+    authors = [{'class': re.compile('line')}, {'class': re.compile('auth')} , {'class': re.compile('by')}] #items to look for
+    souped_authors = []
+    for a in authors:
+        souped_authors += soup.find_all(attrs=a)
+    
+    # print(souped_authors)
+    souped_authors = list(set(souped_authors)) # removes duplicates
+
+    for s in souped_authors:
+        if space_count(s.getText()) == 1: #ideally gets only names but by is still there
+            print(s.getText())
 
     results = soup.body.find_all(attrs=authors) # demonstration of how to use a regualr expression
     print(results)
@@ -109,6 +118,14 @@ def name_flipper(name):  # function to flip author name
                 second = name[(x+1):]
     return(f"{second}, {first}")
 
+
+def space_count(s):
+    count = 0
+    for i in range(0, len(s)):
+        if s[i] == ' ':
+            count += 1
+
+    return count
 
 citation_style = ''  # input variables
 url = ''
