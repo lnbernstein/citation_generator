@@ -2,17 +2,23 @@ import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
+import PySimpleGUI as sg
 import urllib.request,time
 import re
 import sys
 
-# doesnt work yet
-print('hi')
+print('hi')  # doesnt work yet
 print(os.environ.get('driver_path'))
 
+layout = [  # Formatting for pop up window
+    [
 
-# prevents pop up window
-options = Options()
+    ]
+]
+window = sg.Window("Citation Generator", layout) # Creates window
+
+
+options = Options()  # prevents pop up window
 options.headless = True
 
 
@@ -22,9 +28,7 @@ driver = webdriver.Chrome('/Users/luke/Downloads/chromedriver 2', options=option
 # currently testign with this link 
 # 'https://www.nytimes.com/2021/04/12/opinion/biden-economy-culture.html?action=click&module=Opinion&pgtype=Homepage'
 
-# test for bs4, this is working not that poorly
-
-def testing(link):
+def testing(link):  # test for bs4, this is working not that poorly
     driver.get(link)
     time.sleep(4)
     html = driver.page_source
@@ -52,12 +56,7 @@ def testing(link):
     print(dates)
 
 
-
-    
-
-# MLA citation function
-
-def mla(link):
+def mla(link):  # MLA citation function
     
     driver.get(link) # creates 
     
@@ -100,7 +99,7 @@ def mla(link):
     driver.quit()  # this closes the webdriver
 
 
-def apa(link):
+def apa(link):  # Not ready yet
     # driver.get('{}', link)
     print('Not completed yet\n')
     pass
@@ -135,6 +134,9 @@ url = ''
 
 def main():
     testing('https://www.nytimes.com/2021/04/12/opinion/biden-economy-culture.html?action=click&module=Opinion&pgtype=Homepage')
+    
+    citation_style = ''  # input variables
+    url = ''
 
     # while True:  # input prompt
     # citation_style = input('Choose Citation Style:\n'
@@ -158,3 +160,9 @@ def main():
 if __name__ == "__main__":
     main()
 
+while True:
+    event, values = window.read()
+    if event == "Exit" or event == sg.WIN_CLOSED:
+        break
+    main()
+window.close()
