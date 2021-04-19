@@ -26,8 +26,8 @@ while True:
         break
     if event == "MLA":
         # mla(values['input'])
-        window['output2'].update('Not Finished Yet')
+        window['output1'].update('Not Finished Yet')
     if event == "APA":
         window['output2'].update('Not Finished Yet')
 
-window.close()
+window.close() 
