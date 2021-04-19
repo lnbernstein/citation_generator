@@ -10,8 +10,6 @@ import sys
 print('hi')  # doesnt work yet
 print(os.environ.get('driver_path'))
 
-window = sg.Window("Citation Generator", layout) # Creates window
-
 
 options = Options()  # prevents pop up window
 options.headless = True
@@ -130,8 +128,8 @@ url = ''
 def main():
     testing('https://www.nytimes.com/2021/04/12/opinion/biden-economy-culture.html?action=click&module=Opinion&pgtype=Homepage')
     
-    citation_style = ''  # input variables
-    url = ''
+    # citation_style = ''  # input variables
+    # url = ''
 
     # while True:  # input prompt
     # citation_style = input('Choose Citation Style:\n'
