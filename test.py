@@ -50,9 +50,9 @@ def testing(link):  # test for bs4, this is working not that poorly
     print(dates)
 
 
-def mla(link):  # MLA citation function
+def mla(url):  # MLA citation function
     
-    driver.get(link) # creates 
+    driver.get(url) # creates 
     
     time.sleep(4)  # lets the javascript load in
 
@@ -82,16 +82,17 @@ def mla(link):  # MLA citation function
         date = input('Please enter the date in day month year format:')
 
     if name3 != '':
-        return(f"{name1}, et al. \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {link}." )  # citation for 3+ author 
+        return(f"{name1}, et al. \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {url}." )  # citation for 3+ author 
     elif name2 != '':    
-        return(f"{name1}, {name2}, \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {link}." )  # citation for 2 authors 
+        return(f"{name1}, {name2}, \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {url}." )  # citation for 2 authors 
     else:
-        return(f"{name1}, \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {link}." )  # citation for 1 authors
+        return(f"{name1}, \x1B[3m{web_title.text}\x1B[23m, {web.text}, {date.text}, {url}." )  # citation for 1 authors
+        
     
     driver.quit()  # this closes the webdriver
 
 
-def apa(link):  # Not ready yet
+def apa(url):  # Not ready yet
     # driver.get('{}', link)
     print('Not completed yet\n')
     pass
@@ -118,15 +119,12 @@ def space_count(s):
 
     return count
 
-citation_style = ''  # input variables
-url = ''
-
 
 def main():
     # testing('https://www.nytimes.com/2021/04/12/opinion/biden-economy-culture.html?action=click&module=Opinion&pgtype=Homepage')
     layout = [  # Formatting for pop up window
-    [sg.Text("Enter url and choose citation style and wait a moment", size=(20, 4))],
-        [sg.Input(size=(80, 2), key='input')],
+    [sg.Text("Enter url and choose citation style", size=(20, 4))],
+        [sg.Input(size=(100, 2), key='input')],
         [sg.Button("MLA", size=(10, 4))],
         [sg.Text(size=(80,2), key='output1')],
         [sg.Button("APA", size=(10, 4))],
@@ -143,7 +141,6 @@ def main():
             break
         if event == "MLA":
             window['output1'].update(mla(values['input']))
-            # window['output1'].update('Not Finished Yet')
         if event == "APA":
             window['output2'].update('Not Finished Yet')
     window.close() 
