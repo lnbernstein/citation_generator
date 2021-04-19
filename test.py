@@ -121,7 +121,7 @@ def space_count(s):
 
 
 def main():
-    # testing('https://www.nytimes.com/2021/04/12/opinion/biden-economy-culture.html?action=click&module=Opinion&pgtype=Homepage')
+    testing('https://www.nytimes.com/2021/04/12/opinion/biden-economy-culture.html?action=click&module=Opinion&pgtype=Homepage')
     layout = [  # Formatting for pop up window
     [sg.Text("Enter url and choose citation style", size=(20, 4))],
         [sg.Input(size=(150, 2), key='input')],
