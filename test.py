@@ -9,7 +9,8 @@
 import PySimpleGUI as sg
 
 layout = [  # Formatting for pop up window
-    [sg.Text("Welcome", size=(20, 4))],
+    [sg.Text("Enter url and choose citation style", size=(20, 4))],
+    [sg.Input(key='Input')],
     [sg.Button("MLA", size=(20, 4))],
     [sg.Button("APA", size=(20, 4))],
     [sg.Button("Exit", size=(20, 4))]
