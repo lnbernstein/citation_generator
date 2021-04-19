@@ -124,15 +124,15 @@ def main():
     # testing('https://www.nytimes.com/2021/04/12/opinion/biden-economy-culture.html?action=click&module=Opinion&pgtype=Homepage')
     layout = [  # Formatting for pop up window
     [sg.Text("Enter url and choose citation style", size=(20, 4))],
-        [sg.Input(size=(100, 2), key='input')],
+        [sg.Input(size=(150, 2), key='input')],
         [sg.Button("MLA", size=(10, 4))],
-        [sg.Text(size=(80,2), key='output1')],
+        [sg.Text(size=(150,4), key='output1')],
         [sg.Button("APA", size=(10, 4))],
-        [sg.Text(size=(80,2), key='output2')],
+        [sg.Text(size=(150,4), key='output2')],
         [sg.Button("Exit", size=(10, 4))]
     ]
     
-    window = sg.Window("Citation Generator", layout, size=(800, 400)) # Creates window
+    window = sg.Window("Citation Generator", layout, size=(800, 500)) # Creates window
 
     while True:
         
