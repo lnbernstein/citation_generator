@@ -102,12 +102,7 @@ def name_flipper(name):  # function to flip author name
     if name == None:
         return('')
     else:
-        first = []
-        second = []
-        for x in range(len(name)):
-            if name[x] == ' ':
-                first = name[0: (x)]
-                second = name[(x+1):]
+        first, second = name.split(' ')
     return(f"{second}, {first}")
 
 
