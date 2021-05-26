@@ -118,7 +118,7 @@ def space_count(s):
 def main():
     testing('https://www.nytimes.com/2021/04/12/opinion/biden-economy-culture.html?action=click&module=Opinion&pgtype=Homepage')
     layout = [  # Formatting for pop up window
-    [sg.Text("Enter url and choose citation style", size=(20, 4))],
+    [sg.Text("Enter url and choose citation style", size=(40, 2))],
         [sg.Input(size=(150, 2), key='input')],
         [sg.Button("MLA", size=(10, 4))],
         [sg.Text(size=(150,4), key='output1')],
@@ -135,7 +135,7 @@ def main():
         if event == "Exit" or event == sg.WIN_CLOSED:
             break
         if event == "MLA":
-            window['output1'].update(mla(values['input']))
+            window['output1'].update(testing(values['input']))
         if event == "APA":
             window['output2'].update('Not Finished Yet')
     window.close() 
